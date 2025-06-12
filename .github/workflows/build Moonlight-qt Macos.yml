@@ -26,13 +26,10 @@ jobs:
       #   run: |
       # -    qmake6 moonlight-qt.pro
       # -    make Release
-      - run: |
-          pwd
-          ls -la
 
       - name: Create DMG
-        env:
-          PATH: $PATH:/Library/Developer/CommandLineTools/usr/bin:/usr/local/bin:/opt/homebrew/bin
+        #env:
+          #PATH: $PATH:/Library/Developer/CommandLineTools/usr/bin:/usr/local/bin:/opt/homebrew/bin
         run: |
           source ./scripts/generate-dmg.sh Release
 
