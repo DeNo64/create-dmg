@@ -1,0 +1,39 @@
+name: Build Moonlight-Qt macOS
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout desired Mac App
+        uses: actions/checkout@v4
+        with:
+          repository: moonlight-stream/moonlight-qt
+          ref: master
+
+      - name: Install Qt
+        run: brew install qt --with-debug
+
+      - name: Install Xcode (if needed, use the CLI)
+        # You might need to install Xcode using the CLI if not available
+        # via brew, but consider using macOS runner image directly
+        # run: /usr/bin/xcodebuild -version 
+
+      - name: Build project
+        run: |
+          qmake6 moonlight-qt.pro
+          make release
+
+      - name: Create DMG
+        env:
+          PATH: $PATH:/Library/Developer/CommandLineTools/usr/bin:/usr/local/bin:/opt/homebrew/bin
+        run: |
+          source ./scripts/generate-dmg.sh
+
+      - name: Upload DMG (optional)
+        uses: actions/upload-artifact@v3
+        with:
+          name: Moonlight-Qt-macOS-DMG
+          path: app/Moonlight.dmg
