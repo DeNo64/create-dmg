@@ -25,7 +25,7 @@ jobs:
       - name: Build project
         run: |
           qmake6 moonlight-qt.pro
-          make release
+          make Release
 
       - name: Create DMG
         env:
