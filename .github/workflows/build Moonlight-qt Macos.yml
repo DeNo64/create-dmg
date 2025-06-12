@@ -7,6 +7,8 @@ jobs:
     runs-on: macos-latest
     strategy:
       fail-fast: false
+    env:
+      SIGNING_IDENTITY: ""
 
     steps:
       - name: Checkout desired Mac App
@@ -44,7 +46,7 @@ jobs:
           sed -i -e 's/x86_64 arm64/arm64/g' ./scripts/generate-dmg.sh
           # qmake moonlight-qt.pro
           # make release
-          echo "SIGNING_IDENTITY = ''"  >> $GITHUB_ENV
+          # echo "SIGNING_IDENTITY = ''"  >> $GITHUB_ENV
           source ./scripts/generate-dmg.sh Release
 
       - name: Upload DMG (optional)
