@@ -17,7 +17,7 @@ jobs:
           submodules: recursive
 
       - name: Install Qt
-        run: brew install qt --debug
+        run: brew install qt #--debug
 
       - name: Install Xcode (if needed, use the CLI)
         # You might need to install Xcode using the CLI if not available
@@ -42,9 +42,9 @@ jobs:
         run: |
           echo "$PATH:/Library/Developer/CommandLineTools/usr/bin:/usr/local/bin:/opt/homebrew/bin" >> $GITHUB_PATH
           sed -i -e 's/x86_64 arm64/arm64/g' ./scripts/generate-dmg.sh
-          qmake moonlight-qt.pro
-          make release
-          #source ./scripts/generate-dmg.sh Release
+          # qmake moonlight-qt.pro
+          # make release
+          source ./scripts/generate-dmg.sh Release
 
       - name: Upload DMG (optional)
         uses: actions/upload-artifact@v4
