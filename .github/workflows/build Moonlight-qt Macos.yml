@@ -12,6 +12,7 @@ jobs:
         with:
           repository: moonlight-stream/moonlight-qt
           ref: master
+          submodules: recursive
 
       - name: Install Qt
         run: brew install qt --debug
