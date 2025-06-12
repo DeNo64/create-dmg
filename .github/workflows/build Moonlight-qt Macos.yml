@@ -34,10 +34,10 @@ jobs:
         env:
           PATH: $PATH:/Library/Developer/CommandLineTools/usr/bin:/usr/local/bin:/opt/homebrew/bin
         run: |
-          source ./scripts/generate-dmg.sh
+          source ./scripts/generate-dmg.sh Release
 
       - name: Upload DMG (optional)
         uses: actions/upload-artifact@v4
         with:
           name: Moonlight-Qt-macOS-DMG
-          path: app/Moonlight.dmg
+          path: build/installer-Release/Moonlight-6.1.0.dmg
