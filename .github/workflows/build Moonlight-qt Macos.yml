@@ -22,10 +22,10 @@ jobs:
         # via brew, but consider using macOS runner image directly
         run: /usr/bin/xcodebuild -version 
 
-      - name: Build project
-        run: |
-          qmake6 moonlight-qt.pro
-          make Release
+      # - name: Build project
+      #   run: |
+      # -    qmake6 moonlight-qt.pro
+      # -    make Release
 
       - name: Create DMG
         env:
