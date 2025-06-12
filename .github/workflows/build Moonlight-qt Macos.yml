@@ -33,6 +33,9 @@ jobs:
       - run: npm install
       - run: npm test
 
+      - name: install create-dmg
+        run: npm install --global create-dmg
+
       - name: Create DMG
         #env:
           #PATH: $PATH:/Library/Developer/CommandLineTools/usr/bin:/usr/local/bin:/opt/homebrew/bin
