@@ -22,7 +22,7 @@ jobs:
         with:
           path: temp
           repository: moonlight-stream/moonlight-qt
-          ref; master
+          ref: master
       - name: Build create-dmg
         run: npm install --global create-dmg
 
