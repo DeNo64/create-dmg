@@ -31,6 +31,8 @@ jobs:
         env:
           PATH: $PATH:/Library/Developer/CommandLineTools/usr/bin:/usr/local/bin:/opt/homebrew/bin
         run: |
+          pwd
+          ls -la
           source ./scripts/generate-dmg.sh
 
       - name: Upload DMG (optional)
