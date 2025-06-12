@@ -1,0 +1,32 @@
+name: build-dmg
+on:
+  - workflow_dispatch
+jobs:
+  build:
+    name: Node.js ${{ matrix.node-version }}
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version:
+          - 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm test
+
+      - name: Checkout desired Mac App
+        uses: actions/checkout@v4
+        with:
+          path: temp
+      - name: Build create-dmg
+        run: npm install --global create-dmg
+
+      - name: Create DMG
+        run: |
+          cd temp
+          create-dmg 'moonlight.app' ../Build
+          ls
