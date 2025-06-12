@@ -33,7 +33,7 @@ jobs:
           source ./scripts/generate-dmg.sh
 
       - name: Upload DMG (optional)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Moonlight-Qt-macOS-DMG
           path: app/Moonlight.dmg
