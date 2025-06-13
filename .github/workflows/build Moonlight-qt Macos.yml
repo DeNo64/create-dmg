@@ -49,7 +49,7 @@ jobs:
           # echo "SIGNING_IDENTITY = ''"  >> $GITHUB_ENV
           # source ./scripts/generate-dmg.sh Release
           echo "Find"
-          find . -type f -perm +111 -name '*moonlight*'
+          find . -type f -perm +111 -name '*Moonlight*'
           echo "List"
           ls -la app/
 
@@ -57,4 +57,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Moonlight-Qt-macOS-DMG
-          path: build/installer-Release/Moonlight-6.1.0.dmg
+          path: app/Moonlight.app
