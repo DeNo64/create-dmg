@@ -26,10 +26,10 @@ jobs:
         # via brew, but consider using macOS runner image directly
         run: /usr/bin/xcodebuild -version 
 
-      # - name: Build project
-      #   run: |
-      # -    qmake6 moonlight-qt.pro
-      # -    make Release
+      - name: Build project
+        run: |
+          qmake6 moonlight-qt.pro
+          make Release
 
       - uses: actions/setup-node@v4
         with:
@@ -47,7 +47,9 @@ jobs:
           # qmake moonlight-qt.pro
           # make release
           # echo "SIGNING_IDENTITY = ''"  >> $GITHUB_ENV
-          source ./scripts/generate-dmg.sh Release
+          # source ./scripts/generate-dmg.sh Release
+          ls
+          ls build
 
       - name: Upload DMG (optional)
         uses: actions/upload-artifact@v4
