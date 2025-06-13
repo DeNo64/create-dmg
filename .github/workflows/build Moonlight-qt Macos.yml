@@ -48,8 +48,10 @@ jobs:
           # make release
           # echo "SIGNING_IDENTITY = ''"  >> $GITHUB_ENV
           # source ./scripts/generate-dmg.sh Release
-          ls
-          ls build
+          echo "List"
+          ls -la
+          echo "Make file"
+          cat Makefile
 
       - name: Upload DMG (optional)
         uses: actions/upload-artifact@v4
