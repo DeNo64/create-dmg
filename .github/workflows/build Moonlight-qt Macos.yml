@@ -48,10 +48,10 @@ jobs:
           # make release
           # echo "SIGNING_IDENTITY = ''"  >> $GITHUB_ENV
           # source ./scripts/generate-dmg.sh Release
+          echo "Find"
+          find . -type f -perm +111 -name '*moonlight*'
           echo "List"
-          ls -la
-          echo "Make file"
-          cat Makefile
+          ls -la app/
 
       - name: Upload DMG (optional)
         uses: actions/upload-artifact@v4
